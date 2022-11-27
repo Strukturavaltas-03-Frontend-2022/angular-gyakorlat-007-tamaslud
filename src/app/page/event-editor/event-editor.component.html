@@ -1,0 +1,44 @@
+<!-- event/date/time/address -->
+
+<form #eventForm="ngForm" (ngSubmit)="onFormSubmit(eventForm)">
+  <div class="mb-3">
+    <label for="input-event" class="form-label">Event name</label>
+    <input type="text" class="form-control" id="input-event"
+    [(ngModel)]="event.name"
+    required pattern=".{8,}">
+    <div id="eventHelp"
+    [hidden]="eventForm.controls['name'].valid"
+    class="error-message">input required, must be at least 8 chars</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="input-date" class="form-label">Event date</label>
+    <input type="text" class="form-control" id="input-date"
+    [(ngModel)]="event.date"
+    required>
+    <div id="dateHelp"
+    [hidden]="eventForm.controls['date'].valid"
+    class="error-message">input required</div>
+  </div>
+  <div class="mb-3">
+    <label for="input-time" class="form-label">Event time</label>
+    <input type="text" class="form-control" id="input-time"
+    [(ngModel)]="event.time"
+    required>
+    <div id="timeHelp"
+    [hidden]="eventForm.controls['time'].valid"
+    class="error-message">input required</div>
+  </div>
+  <div class="mb-3">
+    <label for="input-address" class="form-label">Event address</label>
+    <input type="text" class="form-control" id="input-address"
+    [(ngModel)]="event.location"
+    required>
+    <div id="addressHelp"
+    [hidden]="eventForm.controls['address'].valid"
+    class="error-message">input required</div>
+  </div>
+
+
+  <button [disabled]="eventForm.invalid" type="submit" class="btn btn-primary btn-block">Submit form</button>
+</form>
