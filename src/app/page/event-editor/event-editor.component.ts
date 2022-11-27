@@ -30,8 +30,8 @@ export class EventEditorComponent implements OnInit {
     );
   }
 
-  onFormSubmit(form: NgForm): void {
-    console.log(form.value);
-
+  onUpdate(form: NgForm): void {
+    this.eventService
+      .update(form.value)
   }
 }
